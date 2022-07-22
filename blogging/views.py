@@ -1,3 +1,4 @@
+from this import d
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.views.generic.list import ListView
@@ -25,6 +26,11 @@ class BlogListView(ListView):
     context_object_name = 'reverse_published_posts'
     template_name = 'blogging/list.html'
 
+class BlogDetailView(DetailView):
+    model = Post
+    template_name = 'blogging/detail.html'
+    context_object_name = 'post'
+
 # def list_view(request):
 #     published = Post.objects.exclude(publish_datetime__exact=None)
 #     posts = published.order_by('-publish_datetime')
@@ -36,12 +42,12 @@ class BlogListView(ListView):
     # rewrite our view with render shortcut provided by Django
     # return render(request, 'blogging/list.html', context)
 
-def detail_view(request, post_id):
-    #__exact just seems to be explicit "exact"... not necessary
-    published = Post.objects.exclude(publish_datetime=None)
-    try:
-        post = published.get(pk=post_id)
-    except Post.DoesNotExist:
-        raise Http404
-    context = {'post': post}
-    return render(request, 'blogging/detail.html', context)
+# def detail_view(request, post_id):
+#     #__exact just seems to be explicit "exact"... not necessary
+#     published = Post.objects.exclude(publish_datetime=None)
+#     try:
+#         post = published.get(pk=post_id)
+#     except Post.DoesNotExist:
+#         raise Http404
+#     context = {'post': post}
+#     return render(request, 'blogging/detail.html', context)
