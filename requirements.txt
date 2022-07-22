@@ -1,5 +1,5 @@
 asgiref
-backports.zoneinfo==0.2.1
-Django==4.0.5
-pytz==2022.1
-sqlparse==0.4.2
+backports.zoneinfo
+Django
+pytz
+sqlparse
