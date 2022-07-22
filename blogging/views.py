@@ -17,7 +17,7 @@ def stub_view(request, *args, **kwargs):
         body += "\n".join(["\t%s: %s" % i for i in kwargs.items()])
     return HttpResponse(body, content_type="text/plain")
 
-def BlogListView(ListView):
+class BlogListView(ListView):
     queryset = Post.objects.exclude(publish_datetime__exact=None).order_by('-publish_datetime')
     # in addtion to getting lower-cased model name + _list "like object_list, post_list"... you can define context_object_name
     # read more about context_object_name:
