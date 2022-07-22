@@ -2,10 +2,14 @@ asgiref
 backports.zoneinfo
 black
 click
+dj-database-url
 Django
+gunicorn
 mypy-extensions
 pathspec
 platformdirs
+psycopg2-binary
 sqlparse
 tomli
 typing_extensions
+whitenoise
