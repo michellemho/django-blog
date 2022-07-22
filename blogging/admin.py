@@ -7,6 +7,7 @@ from blogging.models import Category
 # admin.site.register(Post)
 # admin.site.register(Category)
 
+
 class CategorizationInline(admin.TabularInline):
     model = Category.posts.through
     extra = 0
@@ -20,9 +21,10 @@ class PostAdmin(admin.ModelAdmin):
         CategorizationInline,
     ]
 
+
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     # inlines = [
     #     CategorizationInline,
     # ]
-    exclude = ['posts']
+    exclude = ["posts"]

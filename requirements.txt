@@ -1,5 +1,11 @@
 asgiref
 backports.zoneinfo
+black
+click
 Django
-pytz
+mypy-extensions
+pathspec
+platformdirs
 sqlparse
+tomli
+typing_extensions

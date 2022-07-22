@@ -19,17 +19,19 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+
 class Category(models.Model):
     # name
     name = models.CharField(max_length=50)
     # description
     text = models.TextField(blank=True)
     # posts
-    posts = models.ManyToManyField(Post, blank=True, related_name='categories')
+    posts = models.ManyToManyField(Post, blank=True, related_name="categories")
 
     def __str__(self):
         return self.name
-    
+
     class Meta:
         verbose_name_plural = "Categories"
+
     pass
