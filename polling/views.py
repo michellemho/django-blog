@@ -25,6 +25,7 @@ class PollDetailView(DetailView):
 			poll.score += 1
 		else:
 			poll.score -= 1
+		poll.save()
 		context = {'object': poll} #context variable named object... generic
 		return render(request, 'polling/detail.html', context)
 
