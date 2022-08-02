@@ -8,9 +8,22 @@
 	</head>
   <body>
     <!-- global navigation -->
+
     <div id="header">  {# header begins here #}
       <ul id="control-bar">
-      <!-- for some reason, logout and admin links don't appear on homepage... just other pages like detail -->
+      {% if user.is_authenticated %}
+        <li>Hello {{ user.username }} </li>
+        {% if user.is_staff %}<li><a href="{% url 'admin:index' %}">admin</a></li>{% endif %}
+          <li><a href="{% url 'logout' %}">logout</a></li>
+        {% else %}
+          <li><a href="{% url 'login' %}">login</a></li>
+      {% endif %}
+      </ul>
+     </div>              {# header ends here #}
+     
+    <!-- <div id="header">  {# header begins here #}
+      <ul id="control-bar">
+        for some reason, logout and admin links don't appear on homepage... just other pages like detail
       {% if user.is_authenticated %}
        {% if user.is_staff %}<li><a href="{% url 'admin:index' %}">admin</a></li>{% endif %}
         <li><a href="{% url 'logout' %}">logout</a></li>
@@ -18,7 +31,8 @@
         <li><a href="{% url 'login' %}">login</a></li>
       {% endif %}
       </ul>
-     </div>              {# header ends here #}
+     </div>              {# header ends here #} -->
+     
     <div id="container">
       <div id="content">
       {% block content %}
